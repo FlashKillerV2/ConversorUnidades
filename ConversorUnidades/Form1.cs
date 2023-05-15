@@ -21,7 +21,7 @@ namespace ConversorUnidades
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]  private extern static void SendMessage(System.IntPtr hWnd ,int wMsg, int wParam, int lParam);
 
         //se declaran los arrays necesarios para los combobox dependientes
-        string[] arrayMagnitudes = { "Longitud", "Área", "Temperatura", "Volumen", "Tiempo", "Frecuencia", "Velocidad", "Masa", "Densidad", "Fuerza", "Presión", "Potencia", "Carga_eléctrica", "Flujo_magnético", "Intensidad_magnética" };
+        string[] arrayMagnitudes = { "Longitud", "Área", "Temperatura", "Volumen", "Tiempo", "Frecuencia", "Velocidad", "Masa", "Densidad", "Fuerza", "Presión", "Potencia", "Carga_eléctrica", "Flujo_magnético", "Intensidad_magnetica" };
         string[] arrayLongitud = { "Kilometro", "Metro", "Centímetro", "Milla", "Yarda", "Pie","Pulgada" };
         string[] arrayÁrea = { "km²", "m²", "mi²", "yd²", "ft²", "in²", "Hectarea" };
         string[] arrayTemperatura = { "Celsius", "Kelvin", "Farenheit" };
@@ -36,7 +36,7 @@ namespace ConversorUnidades
         string[] arrayPotencia = { "Vatio", "Caballo_fuerza", "BTU/h" };
         string[] arrayCarga_eléctrica = { "Coulomb", "Electron" };
         string[] arrayFlujo_magnético = { "Weber", "Tm2" };
-        string[] arrayIntensidad_magnética = { "Tesla", "Gauss" };
+        string[] arrayIntensidad_magnetica = { "Tesla", "Gauss" };
 
 
 
@@ -239,13 +239,13 @@ namespace ConversorUnidades
 
         }
 
-        public void cargarIntensidad_magnética()
+        public void cargarIntensidad_magnetica()
         {
 
-            for (int i = 0; i < arrayIntensidad_magnética.Length; i++)
+            for (int i = 0; i < arrayIntensidad_magnetica.Length; i++)
             {
-                cbDe.Items.Add(arrayIntensidad_magnética[i].ToString());
-                cbA.Items.Add(arrayIntensidad_magnética[i].ToString());
+                cbDe.Items.Add(arrayIntensidad_magnetica[i].ToString());
+                cbA.Items.Add(arrayIntensidad_magnetica[i].ToString());
 
             }
 
@@ -400,11 +400,11 @@ namespace ConversorUnidades
                 cbDe.SelectedItem = "<";
                 cbA.SelectedItem = "<";
             }
-            else if (magnitudes == "Intensidad_magnética")
+            else if (magnitudes == "Intensidad_magnetica")
             {
                 cbDe.Items.Clear();
                 cbA.Items.Clear();
-                cargarIntensidad_magnética();
+                cargarIntensidad_magnetica();
                 cbDe.SelectedIndex = 0;
                 cbA.SelectedIndex = 0;
                 cbDe.SelectedItem = "<";
@@ -1813,14 +1813,14 @@ namespace ConversorUnidades
                         }
 
                     }
-                    //cambio a Intensidad_magnética
-                    else if (magnitudes == "Intensidad_magnética")
+                    //cambio a Intensidad_magnetica
+                    else if (magnitudes == "Intensidad_magnetica")
                     {
-                        if (de == "Tesla" && a == "Glauss")
+                        if (de == "Tesla" && a == "Gauss")
                         {
-                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 10000 + " Glauss");
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 10000 + " Gauss");
                         }
-                        else if (de == "Glauss" && a == "Tesla")
+                        else if (de == "Gauss" && a == "Tesla")
                         {
                             txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) / 10000 + " Tesla");
                         }
