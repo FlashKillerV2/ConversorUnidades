@@ -35,8 +35,8 @@ namespace ConversorUnidades
         string[] arrayPresión = { "Atmosfera", "Bar", "Pascal", "psi", "Torr" };
         string[] arrayPotencia = { "Vatio", "Caballo_fuerza", "BTU/h" };
         string[] arrayCarga_eléctrica = { "Coulomb", "Electron" };
-        string[] arrayFlujo_magnético = { "Weber", "Tm2", "Gauss" };
-        string[] arrayIntensidad_magnética = { "Tesla", "Gauss", "Oersted" };
+        string[] arrayFlujo_magnético = { "Weber", "Tm2" };
+        string[] arrayIntensidad_magnética = { "Tesla", "Gauss" };
 
 
 
@@ -1736,19 +1736,93 @@ namespace ConversorUnidades
                         //Pascal
                         else if (de == "Pascal" && a == "Atmosfera")
                         {
-                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 0.986923 + " atm");
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 0.000009869 + " atm");
                         }
                         else if (de == "Pascal" && a == "Bar")
                         {
-                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 100000 + " bar");
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 0.00001 + " bar");
                         }
                         else if (de == "Pascal" && a == "psi")
                         {
-                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 14.5038 + " psi");
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 0.000145038 + " psi");
                         }
                         else if (de == "Pascal" && a == "Torr")
                         {
-                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 750.062 + " Torr");
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 0.00750062 + " Torr");
+                        }
+
+                    }
+                    //cambio a Potencia
+                    else if (magnitudes == "Potencia")
+                    {
+                        //Vatio
+                        if (de == "Vatio" && a == "Caballo_fuerza")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 0.00134048 + " hp");
+                        }
+                        else if (de == "Vatio" && a == "BTU/h")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 3.41214 + " BTU/h");
+                        }
+
+                        //HP
+                        else if (de == "Caballo_fuerza" && a == "Vatio")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 745.7 + " W");
+                        }
+                        else if (de == "Caballo_fuerza" && a == "BTU/h")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 2544.43 + " BTU/h");
+                        }
+
+                        //BTU/h
+                        else if (de == "BTU/h" && a == "Vatio")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 0.29307107 + " W");
+                        }
+                        else if (de == "BTU/h" && a == "Caballo_fuerza")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 0.000393014 + " hp");
+                        }
+
+                    }
+                    //cambio a Carga_eléctrica
+                    else if (magnitudes == "Carga_eléctrica")
+                    {
+                        if (de == "Coulomb" && a == "Electron")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) / 6241509130000000000 + " Electron");
+                        }
+                        else if (de == "Electron" && a == "Coulomb")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 6241509130000000000 + " Coulomb");
+                        }
+
+                    }
+                    //cambio a Flujo_magnético
+                    else if (magnitudes == "Flujo_magnético")
+                    {
+                        //Weber
+                        if (de == "Weber" && a == "Tm2")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 1 + " Tm2");
+                        }
+                        else if (de == "Tm2" && a == "Weber")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) / 1 + " Weber");
+                        }
+
+                    }
+                    //cambio a Intensidad_magnética
+                    else if (magnitudes == "Intensidad_magnética")
+                    {
+                        if (de == "Tesla" && a == "Glauss")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) * 10000 + " Glauss");
+                        }
+                        else if (de == "Glauss" && a == "Tesla")
+                        {
+                            txtResultado.Text = Convert.ToString(Double.Parse(txtcant.Text) / 10000 + " Tesla");
                         }
 
                     }
